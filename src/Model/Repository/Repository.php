@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Model\Repository;
+namespace app\Model\Repository;
 
 abstract class Repository
 {
@@ -8,5 +8,5 @@ abstract class Repository
     abstract function update($entity) : bool;
     abstract function delete($entity) : bool;
     abstract function getAll() : array;
-    abstract function getByID(int $id) : array;
+    abstract function getByID(int $id) : object;
 }

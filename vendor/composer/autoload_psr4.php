@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'TpMotus\\' => array($baseDir . '/public'),
+    'app\\' => array($baseDir . '/src'),
 );

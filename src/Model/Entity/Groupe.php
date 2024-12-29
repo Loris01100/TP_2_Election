@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Model\Entity;
+namespace app\Model\Entity;
 
 class Groupe
 {
@@ -38,6 +38,10 @@ class Groupe
         $this->libelleGroupe = $libelleGroupe;
     }
 
+    public function getId()
+    {
+
+    }
 
 
 }

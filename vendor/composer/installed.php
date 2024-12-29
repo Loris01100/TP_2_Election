@@ -3,7 +3,7 @@
         'name' => '3olen/tp-election',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '1ac8ca495d82e743b709434e90abd9d4451fc9bd',
+        'reference' => '66e8f8aa6927ba8c2e23b2ef8800d3d23ffbe1e6',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '3olen/tp-election' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '1ac8ca495d82e743b709434e90abd9d4451fc9bd',
+            'reference' => '66e8f8aa6927ba8c2e23b2ef8800d3d23ffbe1e6',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -1,50 +1,65 @@
 <?php
 
-namespace src\Model\Repository;
+namespace app\Model\Repository;
 
-use src\Model\Entity\EtatElection;
+use app\Model\Entity;
+
+use app\Model\Entity\EtatElection;
 use PDO;
 class EtatElectionRepository extends Repository
 {
-    private PDO $pdo;
+    private PDO $bdd;
 
     public function __construct(\PDO $pdo)
     {
-        $this->pdo = $pdo;
+        $this->bdd = $pdo;
     }
 
     function create($entity): bool
     {
-        // TODO: Implement create() method.
         return false;
 
     }
 
     function update($entity): bool
     {
-        // TODO: Implement update() method.
         return false;
 
     }
 
     function delete($entity): bool
     {
-        // TODO: Implement delete() method.
         return false;
 
     }
 
     function getAll(): array
     {
-        // TODO: Implement getAll() method.
+
         return false;
 
     }
 
-    function getByID(int $id): array
+    function getByID(int $id) : object
     {
-        // TODO: Implement getByID() method.
         return false;
 
+    }
+    public function getEtatById(int $id): ?EtatElection
+    {
+        $query = "SELECT * FROM EtatElection WHERE idEtat = :idEtatElection";
+        $statement = $this->bdd->prepare($query);
+        $statement->bindValue(':idEtatElection', $id);
+        $statement->execute();
+
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+        if ($row !=null) {
+            return new EtatElection(
+                $row['idEtatElection'],
+                $row['valeur'],
+                $row['ordre'],
+            );
+        }
+        return null;
     }
 }

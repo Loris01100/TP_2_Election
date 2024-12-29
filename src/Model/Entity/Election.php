@@ -1,23 +1,23 @@
 <?php
 
-namespace src\Model\Entity;
+namespace app\Model\Entity;
 
 class Election
 {
     protected int $idElection;
-    protected Groupe $idGroupe;
-    protected EtatElection $idEtatElection;
+    protected Groupe $iGroupe;
+    protected EtatElection $iEtatElection;
 
     /**
      * @param int $idElection
-     * @param Groupe $idGroupe
-     * @param EtatElection $idEtatElection
+     * @param Groupe $iGroupe
+     * @param EtatElection $iEtatElection
      */
-    public function __construct(int $idElection, Groupe $idGroupe, EtatElection $idEtatElection)
+    public function __construct(int $idElection, Groupe $iGroupe, EtatElection $iEtatElection)
     {
         $this->idElection = $idElection;
-        $this->idGroupe = $idGroupe;
-        $this->idEtatElection = $idEtatElection;
+        $this->iGroupe = $iGroupe;
+        $this->iEtatElection = $iEtatElection;
     }
 
 
@@ -33,22 +33,22 @@ class Election
 
     public function getIdEtatElection(): EtatElection
     {
-        return $this->idEtatElection;
+        return $this->iEtatElection;
     }
 
-    public function setIdEtatElection(EtatElection $idEtatElection): void
+    public function setIdEtatElection(EtatElection $iEtatElection): void
     {
-        $this->idEtatElection = $idEtatElection;
+        $this->iEtatElection = $iEtatElection;
     }
 
     public function getIdGroupe(): Groupe
     {
-        return $this->idGroupe;
+        return $this->iGroupe;
     }
 
-    public function setIdGroupe(Groupe $idGroupe): void
+    public function setIdGroupe(Groupe $iGroupe): void
     {
-        $this->idGroupe = $idGroupe;
+        $this->iGroupe = $iGroupe;
     }
 
 }

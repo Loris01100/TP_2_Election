@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Model\Entity;
+namespace app\Model\Entity;
 
 class EtatElection
 {
@@ -20,7 +20,6 @@ class EtatElection
         $this->valeur = $valeur;
         $this->ordre = $ordre;
     }
-
 
     public function getValeur(): string
     {

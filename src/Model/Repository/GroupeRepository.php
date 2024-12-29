@@ -1,54 +1,92 @@
 <?php
 
-namespace src\Model\Repository;
+namespace app\Model\Repository;
 
 USE PDO;
-use src\Model\Entity\Groupe;
+use app\Model\Entity;
 
 class GroupeRepository extends Repository
 
 {
-    private PDO $pdo;
+    private \PDO $bdd;
 
-    public function __construct(\PDO $pdo)
+    public function __construct(\PDO $bdd)
     {
-        $this->pdo = $pdo;
+        $this->bdd = $bdd;
     }
 
 
     function create($entity): bool
     {
-        // TODO: Implement create() method.
         return false;
 
     }
 
     function update($entity): bool
     {
-        // TODO: Implement update() method.
+
         return false;
 
     }
 
     function delete($entity): bool
     {
-        return false;
-        // TODO: Implement delete() method.
+
         return false;
 
     }
 
     function getAll(): array
     {
-        // TODO: Implement getAll() method.
-        return false;
+
+        $query = "SELECT * FROM Groupe;";
+        $statement = $this->bdd->prepare($query);
+        $statement->execute();
+
+        $groupes = [];
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $groupes[] = new entity\Groupe(
+                $row['idGroupe'],
+                $row['libelleGroupe']
+            );
+        }
+
+        return $groupes;
 
     }
 
-    function getByID(int $id): array
+    function getByID(int $id) : object
     {
-        // TODO: Implement getByID() method.
-        return false;
+        $groupeById = new entity\Groupe($id, '');
+        $query = 'Select * from groupe where idGroupe=:idGroupe';
+        $queryPrep = $this->bdd->prepare($query);
+        $res = $queryPrep->execute([':idGroupe' => $id]);
+        if ($res)
+        {
+            while ($row = $queryPrep->fetch(\PDO::FETCH_ASSOC))
+            {
+                $groupeById = new entity\Groupe($id ,$row['libelleGroupe']);
+            }
+        }
+        return $groupeById;
 
     }
+
+    public function getGroupById(int $id): ?Entity\Groupe
+    {
+        $query = "SELECT * FROM Groupe WHERE idGroupe = :idGroupe";
+        $statement = $this->bdd->prepare($query);
+        $statement->bindValue(':idGroupe', $id);
+        $statement->execute();
+
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+        if ($row) {
+            return new Entity\Groupe(
+                $row['idGroupe'],
+                $row['libelleGroupe']
+            );
+        }
+        return null;
+    }
+
 }

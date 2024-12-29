@@ -1,29 +1,29 @@
 <?php
 
-namespace src\Model\Entity;
+namespace app\Model\Entity;
 
 class Vote
 {
     protected int $idVote;
-    protected Utilisateur $idCandidat;
-    protected Utilisateur $idVotant;
+    protected Utilisateur $iCandidat;
+    protected Utilisateur $iVotant;
     protected int $numTour;
-    protected Election $idElection;
+    protected Election $iElection;
 
     /**
      * @param int $idVote
-     * @param Utilisateur $idCandidat
-     * @param Utilisateur $idVotant
+     * @param Utilisateur $iCandidat
+     * @param Utilisateur $iVotant
      * @param int $numTour
-     * @param Election $idElection
+     * @param Election $iElection
      */
-    public function __construct(int $idVote, Utilisateur $idCandidat, Utilisateur $idVotant, int $numTour, Election $idElection)
+    public function __construct(int $idVote, Utilisateur $iCandidat, Utilisateur $iVotant, int $numTour, Election $iElection)
     {
         $this->idVote = $idVote;
-        $this->idCandidat = $idCandidat;
-        $this->idVotant = $idVotant;
+        $this->iCandidat = $iCandidat;
+        $this->iVotant = $iVotant;
         $this->numTour = $numTour;
-        $this->idElection = $idElection;
+        $this->iElection = $iElection;
     }
 
 
@@ -39,12 +39,12 @@ class Vote
 
     public function getIdCandidat(): Utilisateur
     {
-        return $this->idCandidat;
+        return $this->iCandidat;
     }
 
-    public function setIdCandidat(Utilisateur $idCandidat): void
+    public function setICandidat(Utilisateur $iCandidat): void
     {
-        $this->idCandidat = $idCandidat;
+        $this->iCandidat = $iCandidat;
     }
 
     public function getNumTour(): int
@@ -59,12 +59,12 @@ class Vote
 
     public function getIdVotant(): Utilisateur
     {
-        return $this->idVotant;
+        return $this->iVotant;
     }
 
-    public function setIdVotant(Utilisateur $idVotant): void
+    public function setIVotant(Utilisateur $iVotant): void
     {
-        $this->idVotant = $idVotant;
+        $this->iVotant = $iVotant;
     }
 
     public function getIdElection(): Election
@@ -72,9 +72,9 @@ class Vote
         return $this->idElection;
     }
 
-    public function setIdElection(Election $idElection): void
+    public function setIElection(Election $iElection): void
     {
-        $this->idElection = $idElection;
+        $this->iElection = $iElection;
     }
 
 
